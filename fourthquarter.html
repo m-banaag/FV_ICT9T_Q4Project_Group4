@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade Calculator</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/lemon-milk" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+
+    <style>
+        .container {
+            background-color: #171720;
+            padding: 5px;
+            border-radius: 15px;
+        }
+
+        h1 {
+            font-family: 'LEMON MILK', sans-serif;
+            font-size: 60px;
+        }
+
+        h2 {
+            font-family: 'LEMON MILK', sans-serif;
+            font-size: 40px;
+        }
+
+        body {
+            font-family: 'Montserrat';
+            font-size: 22px;
+            margin: 30px;
+            text-align: center;
+        }
+
+        .navbar-nav,
+        .title {
+            font-family: 'LEMON MILK', sans-serif;
+            font-size: 20px;
+        }
+        button {
+            color: #ffffff;
+            background-color: #232323;
+            border: 2px solid gray;
+            height: 35px;
+            width: 150px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        img {
+            height: 250px;
+            width: 250px;
+        }
+        .flex-column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .col-md-4 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .subject-container {
+            position: relative;
+            margin-bottom: 15px;
+            padding: 10px;
+        }
+        .subject-image {
+            height: 250px;
+            width: 250px;
+            border-radius: 10px;
+            display: block;
+        }
+        .subject-label {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px;
+            font-family: 'Montserrat';
+            font-weight: bold;
+        }
+        input {
+            text-align: center;
+            background-color: #232323;
+            color: #ffffff;
+            border: 2px solid white;
+            height: 70px;
+            width: 250px;
+            border-radius: 10px;
+            margin-top: 10px;
+            font-size: 18px;
+            padding: 5px;
+        }
+        details {
+            background-color: #232323;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            border: 1px solid #444;
+        }
+
+        summary {
+            font-weight: bold;
+            cursor: pointer;
+            outline: none;
+        }
+
+        details[open] {
+            border: 1px solid white;
+        }
+    </style>
+</head>
+
+<body style="background-color: #111111; color: white;">
+
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+        <div class="container-fluid">
+            <div class="title">
+                <a class="navbar-brand" href="index.html">Grade Calculator</a>
+            </div>
+        </div>
+    </nav>
+
+    <br><br><br><br>
+
+    <h1>Grade Calculator</h1>
+<br>
+<hr style="border: 1px solid white; width: 80%; margin: 20px auto;">
+
+<details>
+    <summary>Instructions</summary>
+    <p>Enter your grades below for your result.</p>
+</details>
+
+<div class="container">
+    <div class="row justify-content-center text-center">
+
+        <!-- English -->
+        <div class="col-md-4 mb-4 flex-column">
+            <div class="subject-container">
+                <img src="https://static.vecteezy.com/system/resources/previews/017/300/766/non_2x/learning-english-doodle-set-language-school-in-sketch-style-online-language-education-course-hand-drawn-illustration-isolated-on-white-background-vector.jpg" 
+                     alt="English" 
+                     class="subject-image">
+                <div class="subject-label">English</div>
+            </div>
+            <input type="number" id="eng" placeholder="Enter grade (0-100)" min="0" max="100">
+        </div>
+
+        <!-- Math -->
+        <div class="col-md-4 mb-4 flex-column">
+            <div class="subject-container">
+                <img src="https://as2.ftcdn.net/jpg/03/72/85/21/1000_F_372852173_WdPlIXGKs1vvKNVXHL7hS9I4EmY0VTUs.jpg" 
+                     alt="Math" 
+                     class="subject-image">
+                <div class="subject-label">Math</div>
+            </div>
+            <input type="number" id="math" placeholder="Enter grade (0-100)" min="0" max="100">
+        </div>
+
+        <!-- Science -->
+        <div class="col-md-4 mb-4 flex-column">
+            <div class="subject-container">
+                <img src="https://i.pinimg.com/564x/09/61/ba/0961ba4cccbaa0a25a221e47f7127346.jpg" 
+                     alt="Science" 
+                     class="subject-image">
+                <div class="subject-label">Science</div>
+            </div>
+            <input type="number" id="sci" placeholder="Enter grade (0-100)" min="0" max="100">
+        </div>
+
+    </div>
+</div>
+
+    <br><br>
+    <button class="btn btn-dark" onclick="showGrades()">Submit</button>
+
+    <script>
+        function showGrades() {
+            // values of each grade
+            var eng_grade = Number(document.getElementById("eng").value);
+            var math_grade = Number(document.getElementById("math").value);
+            var sci_grade = Number(document.getElementById("sci").value);
+
+            var avrg = (eng_grade + math_grade + sci_grade) / 3;
+            // checking if average is above/below a certain number
+            switch (true) {
+                case (avrg >= 94 && avrg <= 100):
+                    var status = "Excellent!";
+                    break;
+                case (avrg >= 87 && avrg < 94):
+                    var status = "Above Satisfactory.";
+                    break;
+                case (avrg >= 80 && avrg < 87):
+                    var status = "Satisfactory.";
+                    break;
+                case (avrg >= 75 && avrg < 80):
+                    var status = "Needs Improvement.";
+                    break;
+                case (avrg >= 65 && avrg < 75):
+                    var status = "Poor.";
+                    break;
+                default:
+                    var status = "Invalid Grade.";
+            }
+            if (status == "Invalid Grade.") {
+                document.getElementById("grade").innerHTML = status;
+            } else {
+                document.getElementById("grade").innerHTML = status + " Average: " + avrg.toFixed(2);
+            }
+        }
+    </script>
+
+    <br>
+
+    <p id="grade"></p>
+
+    <!-- Required JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
