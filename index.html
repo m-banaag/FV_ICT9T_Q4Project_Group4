@@ -16,12 +16,12 @@
 
     <style>
         .container {
-            background-color: #171720;
+            background-color: rgba(201, 76, 76, 0.3);
             padding: 5px;
             border-radius: 15px;
         }
         h1 {
-            font-family: 'LEMON MILK', sans-serif;
+            font-family: Cambria,Georgia,serif; 
             font-size: 60px;
         }
         h2 {
@@ -32,10 +32,35 @@
             font-family: 'Montserrat';font-size: 22px;
             margin: 30px;
             text-align: center;
+            background-image: url(https://images.pexels.com/photos/1054218/pexels-photo-1054218.jpeg?cs=srgb&dl=pexels-stywo-1054218.jpg&fm=jpg);
+            background-position: center;
+            background-size: cover;
         }
         .navbar-nav, .title{
             font-family: 'LEMON MILK', sans-serif;
             font-size: 20px;
+        }
+
+        .navbar-nav {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+        .page-header, footer{
+            background-color: rgba(30, 55, 60, 0.5);
+            width: 100vw;      
+            margin-left: calc(-1 * (30px)); 
+            margin-right: calc(-1 * (30px));
+            padding: 20px 0;
+        }
+        .navbar-brand {
+            font-weight: normal
+        }
+        .navbar-nav .nav-item {
+            margin: 0 15px;
+        }
+        footer{
+
         }
         
        
@@ -45,16 +70,25 @@
 
 <body style="background-color: #111111; color: white;">
 
-<nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+
+<header class="page-header">
+    <h1>PROJECT PORTFOLIO</h1>
+    <p>ICT Project</p>
+</header>
+
+<br><br>
+<hr style="border: 1px solid white; width: 80%; margin: 20px auto;">
+
+<nav class="navbar navbar-expand-lg navbar-dark">
 
 <div class="container-fluid">
     <div class="title">
-    <a class="navbar-brand" href="index.html">Project Portfolio</a>
+    <a class="navbar-brand" href="index.html">Home</a>
 </div>
 
-<ul class="navbar-nav me-auto">
+<ul class="navbar-nav mx-auto">
     <li class="nav-item">
-        <a class="nav-link" href="#">About Us</a>
+        <a class="nav-link" href="#aboutus">About Us</a>
       </li>
     <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Quarters
@@ -73,9 +107,10 @@
         <a class="nav-link" href="#">Rate Us</a>
     </li>
     <li class="nav-item">
-        <form>
-        <input type="text" placeholder="Search...">
-    </form>
+        <form class="d-flex" role="search">
+    <input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search">
+    <button class="btn btn-outline-light" type="submit">Search</button>
+</form>
     </li>
 
 </ul>
@@ -87,10 +122,20 @@
 <br>
 <br>
 
-<h1>Project Portfolio</h1>
+
 <br>
+<h2 id="aboutus">About Us</h2>
 <hr style="border: 1px solid white; width: 80%; margin: 20px auto;">
 <p>Text</p>
+
+<br>
+
+<footer>
+    <small>
+    <p>Created by: Matthew Banaag, Mike Jared De Jesus, Riso Salapunen, and Kurt Tenorio</p>
+    <p><b>OB Montessori Center</b></p>
+</small>
+</footer>
 
 <!-- Required JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
